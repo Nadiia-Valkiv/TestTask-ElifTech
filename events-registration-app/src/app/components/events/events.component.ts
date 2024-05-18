@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from "../../services/event.service";
 import {EventResponse} from "../../model/eventResponse";
-import {MatButtonModule} from "@angular/material/button";
 import {Router} from "@angular/router";
 import {Event} from "../../model/event";
-
 
 
 @Component({
@@ -15,7 +13,7 @@ import {Event} from "../../model/event";
 export class EventsComponent implements OnInit {
   events: any[] = [];
   totalEvents = 0;
-  pageSize = 10;
+  pageSize = 6;
   currentPage = 1;
 
   constructor(private eventService: EventService, private router: Router) { }
@@ -44,7 +42,7 @@ export class EventsComponent implements OnInit {
     this.router.navigate(['/register', event._id, event.title]);
   }
 
-  navigateToView(event: Event) {
-    this.router.navigate(['/view', event._id, event.title]);
+  navigateToView(id: string) {
+    this.router.navigate(['/view', id]);
   }
 }

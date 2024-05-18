@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {EventResponse} from "../model/eventResponse";
-import {Participant} from "../model/event";
+import {Event, Participant} from "../model/event";
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,20 @@ import {Participant} from "../model/event";
 export class EventService {
   private apiUrl = 'http://localhost:3000/api/events';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getEvents(page: number, pageSize: number): Observable<EventResponse> {
     let params = new HttpParams()
       .set('page', page.toString())
       .set('pageSize', pageSize.toString());
 
-    return this.http.get<EventResponse>(this.apiUrl, { params });
+    return this.http.get<EventResponse>(this.apiUrl, {params});
+  }
+
+  getEvent(id: string): Observable<Event> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Event>(url);
   }
 
   registerParticipant(eventId: string, participant: Participant): Observable<any> {

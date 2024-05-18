@@ -1,13 +1,15 @@
 <div class="wrapper">
-  <p class="header">"Awesome Event" participants</p>
+  <p class="header">"{{event.title}}" participants</p>
 
   <label>Search </label>
-  <input type="text" placeholder="Search by name or email" [(ngModel)]="searchTerm" (input)="filterParticipants()" />
+  <input type="text" placeholder="Search by name or email" [(ngModel)]="searchTerm" (input)="filterParticipants()"/>
 
-  <ul class="container">
+  <ul class="container" >
     <li class="participant-item" *ngFor="let participant of filteredParticipants">
-      <h4>{{participant.name}}</h4>
-      <p>{{participant.email}}</p>
+      <h4>{{participant?.fullName}}</h4>
+      <p>{{participant?.email}}</p>
     </li>
   </ul>
+
+  <button (click)="backToEvents()">Back to Events</button>
 </div>

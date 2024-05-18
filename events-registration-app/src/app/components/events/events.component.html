@@ -11,12 +11,12 @@
 
     <div class="button-container">
       <button mat-button color="primary" (click)="navigateToRegister(event)">Register </button>
-      <button mat-button color="primary" (click)="navigateToView(event)">View</button>
+      <button mat-button color="primary" (click)="navigateToView(event._id)">View</button>
     </div>
   </div>
 </div>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" [length]="totalEvents"
+<mat-paginator [pageSizeOptions]="[6, 10, 20]" [pageSize]="pageSize" [length]="totalEvents"
                (page)="pageEvent($event)">
 </mat-paginator>
 

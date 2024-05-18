@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UpperCasePipe} from "@angular/common";
@@ -18,7 +18,10 @@ export class RegisterFormComponent implements OnInit {
   eventId!: string;
   eventTitle!: string;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private eventService: EventService) {
+  constructor(private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private eventService: EventService) {
   }
 
   ngOnInit(): void {

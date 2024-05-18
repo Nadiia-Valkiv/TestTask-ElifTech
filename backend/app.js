@@ -1,5 +1,5 @@
 const express = require('express');
-const { MongoClient, ObjectId } = require('mongodb');
+const {MongoClient, ObjectId} = require('mongodb');
 const cors = require('cors');
 
 const app = express();
@@ -53,8 +53,8 @@ app.post('/api/events/:id/participants', async (req, res) => {
         const participant = req.body;
 
         const result = await collection.updateOne(
-            { _id: new ObjectId(eventId) },
-            { $push: { participants: participant } }
+            {_id: new ObjectId(eventId)},
+            {$push: {participants: participant}}
         );
 
         if (result.modifiedCount === 0) {
@@ -65,6 +65,28 @@ app.post('/api/events/:id/participants', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send('Error adding participant');
+    } finally {
+        await client.close();
+    }
+});
+
+app.get('/api/events/:id', async (req, res) => {
+    try {
+        await client.connect();
+        const database = client.db('eventsdb');
+        const collection = database.collection('events');
+        const eventId = req.params.id;
+
+        const event = await collection.findOne({_id: new ObjectId(eventId)});
+
+        if (!event) {
+            res.status(404).send('Event not found');
+        } else {
+            res.json(event);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching event');
     } finally {
         await client.close();
     }
