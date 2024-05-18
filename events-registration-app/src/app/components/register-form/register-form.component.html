@@ -1,0 +1,39 @@
+<div class="container">
+  <p>Registration to event: <strong>{{eventTitle | uppercase}}</strong></p>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="label" for="fullName">Full Name</label>
+      <input id="fullName" formControlName="fullName" type="text" placeholder="Your full name" />
+    </div>
+
+    <div>
+      <label class="label" for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="Your email" />
+    </div>
+
+    <div>
+      <label class="label" for="dateOfBirth">Date of Birth</label>
+      <input id="dateOfBirth" formControlName="dateOfBirth" type="date" />
+    </div>
+
+    <div class="origin-container">
+      <label class="label">Where did you hear about this event?</label>
+
+        <input type="radio" formControlName="origin" value="socialMedia" id="socialMedia" />
+        <label for="socialMedia">Social media</label>
+
+
+        <input type="radio" formControlName="origin" value="friends" id="friends" />
+        <label for="friends">Friends</label>
+
+      <input type="radio" formControlName="origin" value="foundMyself" id="foundMyself" />
+      <label for="foundMyself">Found myself</label>
+
+    </div>
+
+    <button mat-flat-button color="primary" type="submit"  [disabled]="!registerForm.valid" class="btn-black btn btn-subscribe">Register</button>
+  </form>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+.container {
+  margin: 50px auto;
+  padding: 30px;
+  width: 500px;
+  border: darkgrey solid 4px;
+  background-color: #eae9e9;
+  border-radius: 10px;
+}
+
+.label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.origin-container > label {
+  margin-right: 20px;
+}
+
+button {
+  margin-top: 20px;
+}

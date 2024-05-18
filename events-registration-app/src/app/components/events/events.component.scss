@@ -1,0 +1,37 @@
+ h1 {
+   text-align: center;
+ }
+.events {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.event {
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+  border: darkgrey solid 4px;
+  background-color: #eae9e9;
+  border-radius: 10px;
+}
+
+ .event-information {
+   font-size: 12px;
+   display: flex;
+   justify-content: space-between;
+ }
+
+.button-container {
+  button {
+    display: block;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+

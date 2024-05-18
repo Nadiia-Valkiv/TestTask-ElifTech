@@ -1,0 +1,22 @@
+<h1>Events</h1>
+
+<div class="events">
+  <div class="event" *ngFor="let event of events">
+    <h2>{{event.title}}</h2>
+    <p>{{event.description}}</p>
+    <div class="event-information">
+      <span><strong>Organizer:</strong>  {{event.organizer}}</span>
+      <span><strong>Date:</strong> {{event.eventDate | date}}</span>
+    </div>
+
+    <div class="button-container">
+      <button mat-button color="primary" (click)="navigateToRegister(event)">Register </button>
+      <button mat-button color="primary" (click)="navigateToView(event)">View</button>
+    </div>
+  </div>
+</div>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" [length]="totalEvents"
+               (page)="pageEvent($event)">
+</mat-paginator>
+
