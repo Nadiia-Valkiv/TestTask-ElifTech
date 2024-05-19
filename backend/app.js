@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const port = 3000;
-const uri = 'mongodb://localhost:27017';
+const uri = 'mongodb+srv://NadiiaValkiv:rM6xVqeWtgKl96aZ@eliftech.dmzbltd.mongodb.net/eventsdb?retryWrites=true&w=majority&appName=ElifTech';
 const client = new MongoClient(uri);
 
 app.use(cors());
@@ -13,7 +13,7 @@ app.use(express.json()); // Додайте цей рядок для парсин
 app.get('/api/events', async (req, res) => {
     try {
         await client.connect();
-        const database = client.db('eventsdb');
+        const database = client.db('eliftech');
         const collection = database.collection('events');
 
         const page = parseInt(req.query.page) || 1;
@@ -47,7 +47,7 @@ app.get('/api/events', async (req, res) => {
 app.post('/api/events/:id/participants', async (req, res) => {
     try {
         await client.connect();
-        const database = client.db('eventsdb');
+        const database = client.db('eliftech');
         const collection = database.collection('events');
         const eventId = req.params.id;
         const participant = req.body;
@@ -73,7 +73,7 @@ app.post('/api/events/:id/participants', async (req, res) => {
 app.get('/api/events/:id', async (req, res) => {
     try {
         await client.connect();
-        const database = client.db('eventsdb');
+        const database = client.db('eliftech');
         const collection = database.collection('events');
         const eventId = req.params.id;
 

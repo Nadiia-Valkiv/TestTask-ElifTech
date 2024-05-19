@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb://localhost:27017';
+const uri = 'mongodb+srv://NadiiaValkiv:rM6xVqeWtgKl96aZ@eliftech.dmzbltd.mongodb.net/eventsdb?retryWrites=true&w=majority&appName=ElifTech';
 const client = new MongoClient(uri);
 
 const events = [
@@ -370,7 +370,7 @@ async function seedDatabase() {
   try {
     await client.connect();
     console.log('Connected to database');
-    const database = client.db('eventsdb');
+    const database = client.db('eliftech');
     const collection = database.collection('events');
 
     // Очистити колекцію перед додаванням нових даних
