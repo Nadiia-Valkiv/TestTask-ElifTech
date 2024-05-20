@@ -1,6 +1,7 @@
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
-const uri = 'mongodb+srv://NadiiaValkiv:rM6xVqeWtgKl96aZ@eliftech.dmzbltd.mongodb.net/eventsdb?retryWrites=true&w=majority&appName=ElifTech';
+const uri = process.env.MONGO_URL;
 const client = new MongoClient(uri);
 
 const events = [
