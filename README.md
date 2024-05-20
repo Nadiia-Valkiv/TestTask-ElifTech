@@ -1,5 +1,7 @@
 # elif-tech-task
 
+Link to this app https://events-nadiia-valkiv.netlify.app/events
+
 ### Running the Application
 
 To run the application, follow these steps:
