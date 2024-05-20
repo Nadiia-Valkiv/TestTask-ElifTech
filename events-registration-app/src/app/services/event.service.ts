@@ -8,7 +8,7 @@ import {Event, Participant} from "../model/event";
   providedIn: 'root'
 })
 export class EventService {
-  private apiUrl = 'http://localhost:3000/api/events';
+  private apiUrl = 'https://testtask-eliftech-1.onrender.com/api/events';
 
   constructor(private http: HttpClient) {
   }
